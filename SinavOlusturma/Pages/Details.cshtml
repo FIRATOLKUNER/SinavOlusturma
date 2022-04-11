@@ -1,0 +1,336 @@
+﻿@page
+@model SinavOlusturma.Pages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+
+    .option {
+        background-color: #FFFFFF;
+        padding: 5px;
+    }
+
+    .option-selected {
+        background-color: yellow;
+        color: black;
+    }
+</style>
+<script>
+    function select1(e) {
+        // Unset selected class from other options
+        const selected = document.querySelectorAll('.option-list1 .option-selected');
+        selected.forEach(function (el) {
+            el.classList.remove('option-selected');
+        });
+        e.target.classList.add('option-selected');
+    }
+    function select2(e) {
+        // Unset selected class from other options
+        const selected = document.querySelectorAll('.option-list2 .option-selected');
+        selected.forEach(function (el) {
+            el.classList.remove('option-selected');
+        });
+        e.target.classList.add('option-selected');
+    }
+    function select3(e) {
+        // Unset selected class from other options
+        const selected = document.querySelectorAll('.option-list3 .option-selected');
+        selected.forEach(function (el) {
+            el.classList.remove('option-selected');
+        });
+        e.target.classList.add('option-selected');
+    }
+    function select4(e) {
+        // Unset selected class from other options
+        const selected = document.querySelectorAll('.option-list4 .option-selected');
+        selected.forEach(function (el) {
+            el.classList.remove('option-selected');
+        });
+        e.target.classList.add('option-selected');
+    }
+</script>
+
+<h1>Sınav Ekranı ve Sonuç Ekranı</h1>
+<hr />
+<div>
+    <div class="row justify-content-center">
+        <div class="col-sm-8 border">
+            <div class="h3 text-center">
+                @Html.DisplayFor(model => model.Questions.Post_Title)
+            </div>
+            <div class="text-center" row="6">
+                @Html.DisplayFor(model => model.Questions.Post_Content)
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    1) @Html.DisplayFor(model => model.Questions.Question1)
+                </div>
+                <div class="col-sm-6">
+                    2) @Html.DisplayFor(model => model.Questions.Question2)
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="option-list1 col-sm-6 justify-content-center" id="Selected1">
+                    <div class="option col-sm-12 border" onclick="select1(event)" id="Selected1_A">
+                        A) @Html.DisplayFor(model => model.Questions.Question1_A)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select1(event)" id="Selected1_B">
+                        B) @Html.DisplayFor(model => model.Questions.Question1_B)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select1(event)" id="Selected1_C">
+                        C) @Html.DisplayFor(model => model.Questions.Question1_C)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select1(event)" id="Selected1_D">
+                        D) @Html.DisplayFor(model => model.Questions.Question1_D)
+                    </div>
+                </div>
+                <div class="option-list2 col-sm-6 justify-content-center">
+                    <div class="option col-sm-12 border" onclick="select2(event)" id="Selected2_A">
+                        A) @Html.DisplayFor(model => model.Questions.Question2_A)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select2(event)" id="Selected2_B">
+                        B) @Html.DisplayFor(model => model.Questions.Question2_B)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select2(event)" id="Selected2_C">
+                        C) @Html.DisplayFor(model => model.Questions.Question2_C)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select2(event)" id="Selected2_D">
+                        D) @Html.DisplayFor(model => model.Questions.Question2_D)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    3) @Html.DisplayFor(model => model.Questions.Question3)
+                </div>
+                <div class="col-sm-6">
+                    4) @Html.DisplayFor(model => model.Questions.Question4)
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="option-list3 col-sm-6 justify-content-center">
+                    <div class="option col-sm-12 border" onclick="select3(event)" id="Selected3_A">
+                        A) @Html.DisplayFor(model => model.Questions.Question3_A)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select3(event)" id="Selected3_B">
+                        B) @Html.DisplayFor(model => model.Questions.Question3_B)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select3(event)" id="Selected3_C">
+                        C) @Html.DisplayFor(model => model.Questions.Question3_C)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select3(event)" id="Selected3_D">
+                        D) @Html.DisplayFor(model => model.Questions.Question3_D)
+                    </div>
+                </div>
+                <div class="option-list4 col-sm-6 justify-content-center">
+                    <div class="option col-sm-12 border" onclick="select4(event)" id="Selected4_A">
+                        A) @Html.DisplayFor(model => model.Questions.Question4_A)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select4(event)" id="Selected4_B">
+                        B) @Html.DisplayFor(model => model.Questions.Question4_B)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select4(event)" id="Selected4_C">
+                        C) @Html.DisplayFor(model => model.Questions.Question4_C)
+                    </div>
+                    <div class="option col-sm-12 border" onclick="select4(event)" id="Selected4_D">
+                        D) @Html.DisplayFor(model => model.Questions.Question4_D)
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col text-center">
+                    <input type="submit" value="SINAVI TAMAMLA" style="width:40%" class="btn btn-primary" id="btnok" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $("#btnok").click(function (e) {
+            var check = @Html.Raw(Json.Serialize(ViewData["check"]));
+
+            if (check[1] == "A")
+            {
+                if (document.getElementById("Selected1_A").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected1_A").style.background = "green";
+                }
+                else
+                {
+                    document.getElementById("Selected1_A").style.background = "red";
+                }
+            }
+
+            if (check[1] == "B") {
+                if (document.getElementById("Selected1_B").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected1_B").style.background = "green";
+                }
+                else
+                {
+                    document.getElementById("Selected1_B").style.background = "red";
+                }
+            }
+
+            if (check[1] == "C") {
+                if (document.getElementById("Selected1_C").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected1_C").style.background = "green";
+                }
+                else
+                {
+                    document.getElementById("Selected1_C").style.background = "red";
+                }
+            }
+
+            if (check[1] == "D") {
+                if (document.getElementById("Selected1_D").classList.value.indexOf("option-selected") > 0)
+                {
+                    document.getElementById("Selected1_D").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected1_D").style.background = "red";
+                }
+            }
+
+            const selected1 = document.querySelectorAll('.option-list1 .option-selected');
+            selected1.forEach(function (e1) {
+                e1.classList.remove('option-selected');
+            });
+
+
+
+            if (check[2] == "A") {
+                if (document.getElementById("Selected2_A").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected2_A").style.background = "green";
+                }
+                else
+                {
+                    document.getElementById("Selected2_A").style.background = "red";
+                }
+            }
+
+            if (check[2] == "B") {
+                if (document.getElementById("Selected2_B").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected2_B").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected2_B").style.background = "red";
+                }
+            }
+
+            if (check[2] == "C") {
+                if (document.getElementById("Selected2_C").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected2_C").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected2_C").style.background = "red";
+                }
+            }
+
+            if (check[2] == "D") {
+                if (document.getElementById("Selected2_D").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected2_D").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected2_D").style.background = "red";
+                }
+            }
+
+            const selected2 = document.querySelectorAll('.option-list2 .option-selected');
+            selected2.forEach(function (e2) {
+                e2.classList.remove('option-selected');
+            });
+
+
+
+            if (check[3] == "A") {
+                if (document.getElementById("Selected3_A").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected3_A").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected3_A").style.background = "red";
+                }
+            }
+
+            if (check[3] == "B") {
+                if (document.getElementById("Selected3_B").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected3_B").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected3_B").style.background = "red";
+                }
+            }
+
+            if (check[3] == "C") {
+                if (document.getElementById("Selected3_C").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected3_C").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected3_C").style.background = "red";
+                }
+            }
+
+            if (check[3] == "D") {
+                if (document.getElementById("Selected3_D").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected3_D").style.background = "green";
+                }
+                else {
+
+                    document.getElementById("Selected3_D").style.background = "red";
+                }
+            }
+
+            const selected3 = document.querySelectorAll('.option-list3 .option-selected');
+            selected3.forEach(function (e3) {
+                e3.classList.remove('option-selected');
+            });
+
+
+
+            if (check[4] == "A") {
+                if (document.getElementById("Selected4_A").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected4_A").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected4_A").style.background = "red";
+                }
+            }
+
+            if (check[4] == "B") {
+                if (document.getElementById("Selected4_B").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected4_B").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected4_B").style.background = "red";
+                }
+            }
+
+            if (check[4] == "C") {
+                if (document.getElementById("Selected4_C").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected4_C").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected4_C").style.background = "red";
+                }
+            }
+
+            if (check[4] == "D") {
+                if (document.getElementById("Selected4_D").classList.value.indexOf("option-selected") > 0) {
+                    document.getElementById("Selected4_D").style.background = "green";
+                }
+                else {
+                    document.getElementById("Selected4_D").style.background = "red";
+                }
+            }
+
+            const selected4 = document.querySelectorAll('.option-list4 .option-selected');
+            selected4.forEach(function (e4) {
+                e4.classList.remove('option-selected');
+            });
+        });
+    </script>
+}
+

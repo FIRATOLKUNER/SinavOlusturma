@@ -1,0 +1,28 @@
+﻿@page
+@model SinavOlusturma.Pages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@if (@ViewData["Giris"] == "Var")
+{
+    <form id="loginform" method="post">
+    </form>
+
+}
+else
+{
+<form id="loginform" method="post">
+    <div id="logindiv" class="form-group" align="center">
+        <div class="col-sm-4 justify-content-center border" style="margin:10%;">
+            <h3 class="text-center">Kullanıcı Giriş</h3>
+            <input class="m-sm-2" asp-for="loginData.Username" placeholder="username" /><br>
+            <input class="m-sm-2" asp-for="loginData.Password" placeholder="password" /><br><br>
+            <h6 id="hatalabel" style="color:red;">@ViewData["Hata"]</h6><br>
+            <input type="submit" value="Giriş Yap" class="btn btn-primary" /><br><br>
+            @Html.AntiForgeryToken()
+        </div>
+    </div>
+</form>
+}

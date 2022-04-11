@@ -1,0 +1,240 @@
+﻿@page
+@model SinavOlusturma.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Sınav Oluşturma Ekranı</h1>
+
+<hr />
+<div class="row justify-content-center" >
+    <div class="col-md-8 border">
+        <form id="OlusturmaForm" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label class="control-label">Yazı</label>
+            <div class="form-group">
+                <select asp-for="Questions.Post_Title" class="form-control" id="post_title_select" asp-items="Model.post_titles" onchange="getRest(this)">
+                    <option value="Please select">Please select</option>
+                </select>
+                <span asp-validation-for="Questions.Post_Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <textarea asp-for="Questions.Post_Content" class="form-control" id="pcontent" rows="4"></textarea>
+                <span asp-validation-for="Questions.Post_Content" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">Soru_1</label>
+                <div class="col-sm-11">
+                    <input asp-for="Questions.Question1" class="form-control" id="Question1" />
+                </div>
+                <span asp-validation-for="Questions.Question1" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">A)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question1_A" class="form-control" id="Question1_A" />
+                </div>
+                <span asp-validation-for="Questions.Question1_A" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">B)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question1_B" class="form-control" id="Question1_B" />
+                </div>
+                <span asp-validation-for="Questions.Question1_B" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">C)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question1_C" class="form-control" id="Question1_C" />
+                </div>
+                <span asp-validation-for="Questions.Question1_C" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">D)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question1_D" class="form-control" id="Question1_D" />
+                </div>
+                <span asp-validation-for="Questions.Question1_D" class="text-danger"></span>
+            </div>
+            <div class="row justify-content-center">
+                <select asp-for="Questions.Question1_Answer" class="col-sm-5 form-control" id="Question1_Answer">
+                    <option value="Doğru Cevabı Seç">Doğru Cevabı Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">Soru_2</label>
+                <div class="col-sm-11">
+                    <input asp-for="Questions.Question2" class="form-control" id="Question2" />
+                </div>
+                <span asp-validation-for="Questions.Question2" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">A)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question2_A" class="form-control" id="Question2_A" />
+                </div>
+                <span asp-validation-for="Questions.Question2_A" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">B)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question2_B" class="form-control" id="Question2_B" />
+                </div>
+                <span asp-validation-for="Questions.Question2_B" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">C)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question2_C" class="form-control" id="Question2_C" />
+                </div>
+                <span asp-validation-for="Questions.Question2_C" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">D)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question2_D" class="form-control" id="Question2_D" />
+                </div>
+                <span asp-validation-for="Questions.Question2_D" class="text-danger"></span>
+            </div>
+            <div class="row justify-content-center">
+                <select asp-for="Questions.Question2_Answer" class="col-sm-5 form-control" id="Question2_Answer">
+                    <option value="Doğru Cevabı Seç">Doğru Cevabı Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">Soru_3</label>
+                <div class="col-sm-11">
+                    <input asp-for="Questions.Question3" class="form-control" id="Question3" />
+                </div>
+                <span asp-validation-for="Questions.Question3" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">A)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question3_A" class="form-control" id="Question3_A" />
+                </div>
+                <span asp-validation-for="Questions.Question3_A" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">B)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question3_B" class="form-control" id="Question3_B" />
+                </div>
+                <span asp-validation-for="Questions.Question3_B" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">C)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question3_C" class="form-control" id="Question3_C" />
+                </div>
+                <span asp-validation-for="Questions.Question3_C" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">D)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question3_D" class="form-control" id="Question3_D" />
+                </div>
+                <span asp-validation-for="Questions.Question3_D" class="text-danger"></span>
+            </div>
+            <div class="row justify-content-center">
+                <select asp-for="Questions.Question3_Answer" class="col-sm-5 form-control" id="Question3_Answer">
+                    <option value="Doğru Cevabı Seç">Doğru Cevabı Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">Soru_4</label>
+                <div class="col-sm-11">
+                    <input asp-for="Questions.Question4" class="form-control" id="Question4" />
+                </div>
+                <span asp-validation-for="Questions.Question4" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">A)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question4_A" class="form-control" id="Question4_A" />
+                </div>
+                <span asp-validation-for="Questions.Question4_A" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">B)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question4_B" class="form-control" id="Question4_B" />
+                </div>
+                <span asp-validation-for="Questions.Question4_B" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-1 col-control-label">C)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question4_C" class="form-control" id="Question4_C" />
+                </div>
+                <span asp-validation-for="Questions.Question4_C" class="text-danger"></span>
+                <label class="col-sm-1 col-control-label">D)</label>
+                <div class="col-sm-5">
+                    <input asp-for="Questions.Question4_D" class="form-control" id="Question4_D" />
+                </div>
+                <span asp-validation-for="Questions.Question4_D" class="text-danger"></span>
+            </div>
+            <div class="row justify-content-center">
+                <select asp-for="Questions.Question4_Answer" class="col-sm-5 form-control" id="Question4_Answer">
+                    <option value="Doğru Cevabı Seç">Doğru Cevabı Seç</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+            <div class="form-group" style="display:none;">
+                <label asp-for="Questions.IsComplete" class="control-label"></label>
+                <input asp-for="Questions.IsComplete" class="form-control" value="False" />
+                <span asp-validation-for="Questions.IsComplete" class="text-danger"></span>
+            </div>
+            <br>
+            <br>
+            <div class="form-group">
+                <div class="col text-center">
+                    <input type="button" value="SINAV OLUŞTUR" style="width:50%" class="btn btn-primary" onclick="OnBtnClick()" />
+                </div>
+            </div>
+            <br>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+        function getRest(e) {
+            var result = @Html.Raw(Json.Serialize(ViewData["result"]));
+            $("#pcontent").val(result[document.getElementById("post_title_select").selectedIndex]);
+        }
+        function OnBtnClick() {
+            if ((document.getElementById("post_title_select").value == "Please select") || (document.getElementById("pcontent").value == "")
+                || (document.getElementById("Question1").value == "") || (document.getElementById("Question1_A").value == "")
+                || (document.getElementById("Question1_B").value == "") || (document.getElementById("Question1_C").value == "")
+                || (document.getElementById("Question1_D").value == "") || (document.getElementById("Question1_Answer").value == "Doğru Cevabı Seç")
+                || (document.getElementById("Question2").value == "") || (document.getElementById("Question2_A").value == "")
+                || (document.getElementById("Question2_B").value == "") || (document.getElementById("Question2_C").value == "")
+                || (document.getElementById("Question2_D").value == "") || (document.getElementById("Question2_Answer").value == "Doğru Cevabı Seç")
+                || (document.getElementById("Question3").value == "") || (document.getElementById("Question3_A").value == "")
+                || (document.getElementById("Question3_B").value == "") || (document.getElementById("Question3_C").value == "")
+                || (document.getElementById("Question3_D").value == "") || (document.getElementById("Question3_Answer").value == "Doğru Cevabı Seç")
+                || (document.getElementById("Question4").value == "") || (document.getElementById("Question4_A").value == "")
+                || (document.getElementById("Question4_B").value == "") || (document.getElementById("Question4_C").value == "")
+                || (document.getElementById("Question4_D").value == "") || (document.getElementById("Question4_Answer").value == "Doğru Cevabı Seç")) {
+
+                alert("One or more of the fields are empty.");
+            }
+            else {
+                document.getElementById("OlusturmaForm").submit();
+            }
+
+
+        }
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

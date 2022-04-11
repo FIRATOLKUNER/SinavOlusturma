@@ -1,0 +1,32 @@
+﻿@page
+@model SinavOlusturma.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Sınav Silme Ekranı</h1>
+
+<h3>Bu Sınavı Silmek Stediğinizden Emin misiniz?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Başlık
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Questions.Post_Title)
+        </dd>
+        <dt class="col-sm-2">
+            Sınav İçeriği
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Questions.Post_Content)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Questions.Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" />
+    </form>
+</div>
